@@ -9,13 +9,13 @@ describe("Shopping basket", function() {
   }); 
   // 2. 10% discount for all shopping baskets over £20
   it("should apply 10% discount for all shopping baskets over £20", function() {
-    total = shopping_basket.discount_for_20();
-    assert.equal(69.66, total);
+    total_after_discount = shopping_basket.discount_for_20(total);
+    assert.equal(69.66, total_after_discount);
   }); 
   // 3. Certain items are buy one get on free, this should be considered.
   it("should consider BOGOF items when calcalating total", function() {
-    shopping_basket.apply_bogof();
-    assert.equal(69.06, total);
+    bogof_total = shopping_basket.apply_bogof(total_after_discount);
+    assert.equal(69.06, bogof_total);
   }); 
   // 4. If the customer has a valid discount card then they get and additional 5% off.
 });
