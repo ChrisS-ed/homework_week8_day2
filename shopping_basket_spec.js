@@ -13,5 +13,9 @@ describe("Shopping basket", function() {
     assert.equal(69.66, total);
   }); 
   // 3. Certain items are buy one get on free, this should be considered.
+  it("should consider BOGOF items when calcalating total", function() {
+    shopping_basket.apply_bogof();
+    assert.equal(69.06, total);
+  }); 
   // 4. If the customer has a valid discount card then they get and additional 5% off.
 });
