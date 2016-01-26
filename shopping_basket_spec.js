@@ -18,4 +18,8 @@ describe("Shopping basket", function() {
     assert.equal(31.56, bogof_total);
   }); 
   // 4. If the customer has a valid discount card then they get and additional 5% off.
+  it("should apply additional 5% discount if basket has discount card", function() {
+    discount_card_total = shopping_basket.apply_card_discount(bogof_total);
+    assert.equal('29.98', discount_card_total); // £1.58 discount on £31.56
+  }); 
 });
